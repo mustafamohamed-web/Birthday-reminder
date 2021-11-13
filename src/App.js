@@ -1,21 +1,17 @@
-import React from "react";
-// import Data from "./data"
+/* eslint-disable */
+import React, { useState } from "react";
+import data from "./data";
 import List from "./List";
 
 const App = function () {
+  const [people, setPeople] = useState(data);
+
   return (
     <main>
       <section className="container">
-        <h3>0 Birthdays today</h3>
-        <List />
-        <button
-          type="button"
-          onClick={() => {
-            console.log("hello world");
-          }}
-        >
-          Clear tasks
-        </button>
+        <h3>{people.length} Birthdays Today</h3>
+        <List people={people} />
+        <button onClick={() => setPeople([])}>Clear Tasks</button>
       </section>
     </main>
   );
